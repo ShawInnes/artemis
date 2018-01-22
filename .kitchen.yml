@@ -1,6 +1,14 @@
 ---
 driver:
   name: vagrant
+  cachier: true
+  linked_clone: true
+  gui: false
+  customize:
+    memory: 2048
+    cpus: 2
+  network:
+    - ["forwarded_port", {guest: 61616, host: 61616}]
 
 provisioner:
   name: chef_zero
@@ -13,8 +21,7 @@ verifier:
   name: inspec
 
 platforms:
-  - name: ubuntu-16.04
-  - name: centos-7
+  - name: bento/centos-7.4
 
 suites:
   - name: default
