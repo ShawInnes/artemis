@@ -1,0 +1,13 @@
+[Unit]
+Description=Apache ActiveMQ Artemis
+
+[Service]
+User=artemis
+PIDFile=<%=node['artemis']['broker_home']%>/data/artemis.pid
+ExecStart=<%=node['artemis']['broker_home']%>/bin/artemis-service start
+ExecStop=<%=node['artemis']['broker_home']%>/bin/artemis-service stop
+ExecReload=<%=node['artemis']['broker_home']%>/bin/artemis-service restart
+Restart=always
+
+[Install]
+WantedBy=mult-user.target

@@ -9,6 +9,9 @@ driver:
     cpus: 2
   network:
     - ["forwarded_port", {guest: 61616, host: 61616}]
+    - ["forwarded_port", {guest: 8161, host: 8161}]
+    - ["forwarded_port", {guest: 5672, host: 5672}]
+    
 
 provisioner:
   name: chef_zero

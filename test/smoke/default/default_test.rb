@@ -10,6 +10,22 @@ describe port(61616) do
   it { should be_listening }
 end
 
+describe port(8161) do
+  it { should be_listening }
+end
+
+describe port(5672) do
+  it { should be_listening }
+end
+
+describe port(61613) do
+  it { should_not be_listening }
+end
+
 describe directory('/usr/local/apache-artemis-2.4.0') do
+  it { should exist }
+end
+
+describe directory('/var/lib/artemis') do
   it { should exist }
 end
