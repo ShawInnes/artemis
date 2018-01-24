@@ -22,7 +22,7 @@ describe port(61613) do
   it { should_not be_listening }
 end
 
-describe directory('/usr/local/apache-artemis-2.4.0') do
+describe directory('/opt/apache-artemis-2.4.0') do
   it { should exist }
 end
 

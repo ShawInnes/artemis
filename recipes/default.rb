@@ -15,9 +15,15 @@ user 'artemis' do
   action :create
 end
 
+directory "#{node['artemis']['target_path']}/apache-artemis-#{node['artemis']['version']}" do
+  user 'artemis'
+  group 'artemis'
+  action :create
+end
+
 tar_extract "#{node['artemis']['source_url']}/apache-artemis-#{node['artemis']['version']}-bin.tar.gz" do
   target_dir node['artemis']['target_path']
-  creates "#{node['artemis']['target_path']}/apache-artemis-#{node['artemis']['version']}"
+  creates "#{node['artemis']['target_path']}/apache-artemis-#{node['artemis']['version']}/bin/artemis"
   user 'artemis'
   group 'artemis'
 end
